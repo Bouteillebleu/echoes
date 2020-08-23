@@ -1,0 +1,15 @@
+{# templates/example.html #}
+{% extends 'base.html' %}
+{% load socialaccount %}
+
+{% block title %}Echoes of the Labyrinth: django-allauth tutorial{% endblock %}
+
+{% block content %}
+  <h1>Django Allauth Tutorial</h1>
+  {% if user.is_authenticated %}
+    <p>Welcome {{ user.username }} !</p>
+    <a href="{% url 'account_logout' %}">Log out</p>
+  {% else %}
+    <a href="{% provider_login_url 'github' %}">Sign Up</a>
+  {% endif %}
+{% endblock %}
