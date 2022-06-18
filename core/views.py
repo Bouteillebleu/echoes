@@ -7,7 +7,8 @@ from core.models import Vision, Volume
 
 
 def index(request):
-    return HttpResponse("Hello world - this is the initial index view.")
+    return SimpleTemplateResponse(template="simple_page.html",
+        context={"text": "Hello world - this is the initial index view."})
 
 def plain_text_vision(request, pk):
     vision = Vision.objects.get(pk=pk)

@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'core/doodle.css' %}">
+    <title>{% block title %}Echoes of the Labyrinth{% endblock %}</title>
+  </head>
+  <body class="doodle">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Short+Stack&display=swap');
+      body {
+	  font-family: 'Short Stack', cursive;
+      }
+    </style>
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>
