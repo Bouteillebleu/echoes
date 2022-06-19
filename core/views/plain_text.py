@@ -1,5 +1,4 @@
 from django.template.response import SimpleTemplateResponse
-from django.views.generic import TemplateView
 
 from core.models import Vision, Volume
 
@@ -74,6 +73,3 @@ def show_single_volume(request, volume_number):
 def show_full_year(request, volume_major_number):
     volumes = Volume.objects.filter(number__regex=str(volume_major_number) + r"[a-d]").order_by('number')
     return _plain_text_volume(request, volumes)
-
-class Example(TemplateView):
-    template_name = 'example.html'

@@ -18,11 +18,10 @@
 	    {# <a href="/example">django-allauth example page</a> #}
 	    <a href="/">[Index]</a>
         <a href="/about">[About]</a>
-        {# if user is authenticated #}
-        {# <a href="/accounts/login">Login</a> #}
-        {# else #}
-        {# <a href="/accounts/logout">Logout</a> #}
-        {# endif #}
+        {% if user.is_authenticated %}
+            <span>// Logged in as {{ user.username }} //</span>
+            <a href="/accounts/logout">[Logout]</a>
+        {% endif %}
       {% endblock %}
     </div>
     <div id="content">
