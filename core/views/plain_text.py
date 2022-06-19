@@ -1,16 +1,8 @@
-from django.http import HttpResponse
-
-# Create your views here.
 from django.template.response import SimpleTemplateResponse
 
 from core.models import Vision, Volume
 
-
-def index(request):
-    return SimpleTemplateResponse(template="simple_page.html",
-        context={"text": "Hello world - this is the initial index view."})
-
-def plain_text_vision(request, pk):
+def show_vision(request, pk):
     vision = Vision.objects.get(pk=pk)
     return SimpleTemplateResponse(template="plain_text_vision.txt", context={"vision": vision},
                                   content_type="text/plain")
@@ -74,10 +66,10 @@ def _plain_text_volume(request, volume_list):
                                   content_type="text/plain; charset=utf-8")
 
 
-def plain_text_single_volume(request, volume_number):
+def show_single_volume(request, volume_number):
     volume = Volume.objects.get(number=volume_number)
     return _plain_text_volume(request, [volume])
 
-def plain_text_full_year(request, volume_major_number):
+def show_full_year(request, volume_major_number):
     volumes = Volume.objects.filter(number__regex=str(volume_major_number) + r"[a-d]").order_by('number')
     return _plain_text_volume(request, volumes)
