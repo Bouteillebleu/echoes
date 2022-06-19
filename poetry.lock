@@ -123,6 +123,14 @@ Django = ">=3.2"
 sqlparse = ">=0.2.0"
 
 [[package]]
+name = "django-login-required-middleware"
+version = "0.8.0"
+description = "Requires login to all requests through middleware."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "django-sortedm2m"
 version = "3.1.1"
 description = "Drop-in replacement for Django's many to many field with sorted relations."
@@ -256,7 +264,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "1b96b184860617418f207a17ff452c20d87c44e4488d60b8eb405b9d6034fe45"
+content-hash = "7815a8aa480e7db9ef871cc2df019407375a87b6171a83a9c6bee417b511b583"
 
 [metadata.files]
 asgiref = [
@@ -379,6 +387,10 @@ django-allauth = [
 django-debug-toolbar = [
     {file = "django-debug-toolbar-3.4.0.tar.gz", hash = "sha256:ae6bec2c1ce0e6900b0ab0443e1427eb233d8e6f57a84a0b2705eeecb8874e22"},
     {file = "django_debug_toolbar-3.4.0-py3-none-any.whl", hash = "sha256:42c1c2e9dc05bb57b53d641e3a6d131fc031b92377b34ae32e604a1fe439bb83"},
+]
+django-login-required-middleware = [
+    {file = "django-login-required-middleware-0.8.0.tar.gz", hash = "sha256:696558388cd4dd718fb1d81f5ee95318c148743fc1e90e5d6d6c6363c4e9c818"},
+    {file = "django_login_required_middleware-0.8.0-py3-none-any.whl", hash = "sha256:29039c6a91df5928383f6f892496d576ad27d2210cbb6f92f6edd73c95471a83"},
 ]
 django-sortedm2m = [
     {file = "django-sortedm2m-3.1.1.tar.gz", hash = "sha256:136f3d4e0820b351608a7141d88ac3ba7fafcd37a9b8361ad00ffe616a790be5"},

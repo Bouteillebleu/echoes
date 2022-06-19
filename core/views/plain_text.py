@@ -3,7 +3,6 @@ from django.template.response import SimpleTemplateResponse
 
 from core.models import Vision, Volume
 
-@login_required
 def show_vision(request, pk):
     vision = Vision.objects.get(pk=pk)
     return SimpleTemplateResponse(template="plain_text_vision.txt", context={"vision": vision},
@@ -68,12 +67,10 @@ def _plain_text_volume(request, volume_list):
                                   content_type="text/plain; charset=utf-8")
 
 
-@login_required
 def show_single_volume(request, volume_number):
     volume = Volume.objects.get(number=volume_number)
     return _plain_text_volume(request, [volume])
 
-@login_required
 def show_full_year(request, volume_major_number):
     volumes = Volume.objects.filter(number__regex=str(volume_major_number) + r"[a-d]").order_by('number')
     return _plain_text_volume(request, volumes)

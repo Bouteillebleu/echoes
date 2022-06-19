@@ -1,6 +1,9 @@
 from django.template.response import TemplateResponse
 
+from login_required import login_not_required
+
 # URL /, name "index"
+@login_not_required
 def index(request):
     """
     Index page.
@@ -10,6 +13,7 @@ def index(request):
     return TemplateResponse(request=request, template="index.html")
 
 # URL /about, name "about"
+@login_not_required
 def about(request):
     """
     About page.
