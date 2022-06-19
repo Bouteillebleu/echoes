@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" type="text/css" href="{% static 'core/doodle.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'doodle.css' %}">
     <title>Echoes: {% block title %}of the Labyrinth{% endblock %}</title>
   </head>
   <body class="doodle">
@@ -24,6 +24,16 @@
         {% endif %}
       {% endblock %}
     </div>
+    {% if messages %}
+    <div>
+      <strong>Messages:</strong>
+      <ul>
+	  {% for message in messages %}
+	    <li>{{message}}</li>
+	  {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
     <div id="content">
       {% block content %}
       {% endblock %}
