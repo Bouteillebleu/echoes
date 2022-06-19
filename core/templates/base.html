@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" type="text/css" href="{% static 'core/doodle.css' %}">
-    <title>{% block title %}Echoes of the Labyrinth{% endblock %}</title>
+    <title>Echoes: {% block title %}of the Labyrinth{% endblock %}</title>
   </head>
   <body class="doodle">
     <style>
@@ -12,7 +12,22 @@
 	  font-family: 'Short Stack', cursive;
       }
     </style>
-    {% block content %}
-    {% endblock %}
+    <div id="navbar" class="doodle-border">
+      {% block navbar %}
+        {# <a href="/admin">Admin</a> #}
+	    {# <a href="/example">django-allauth example page</a> #}
+	    <a href="/">[Index]</a>
+        <a href="/about">[About]</a>
+        {# if user is authenticated #}
+        {# <a href="/accounts/login">Login</a> #}
+        {# else #}
+        {# <a href="/accounts/logout">Logout</a> #}
+        {# endif #}
+      {% endblock %}
+    </div>
+    <div id="content">
+      {% block content %}
+      {% endblock %}
+    </div>
   </body>
 </html>
