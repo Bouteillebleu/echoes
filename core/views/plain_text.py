@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.template.response import SimpleTemplateResponse
 
 from core.models import Vision, Volume

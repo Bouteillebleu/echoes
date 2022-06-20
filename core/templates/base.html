@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" type="text/css" href="{% static 'core/doodle.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'doodle.css' %}">
     <title>Echoes: {% block title %}of the Labyrinth{% endblock %}</title>
   </head>
   <body class="doodle">
@@ -18,13 +18,22 @@
 	    {# <a href="/example">django-allauth example page</a> #}
 	    <a href="/">[Index]</a>
         <a href="/about">[About]</a>
-        {# if user is authenticated #}
-        {# <a href="/accounts/login">Login</a> #}
-        {# else #}
-        {# <a href="/accounts/logout">Logout</a> #}
-        {# endif #}
+        {% if user.is_authenticated %}
+            <span>// Logged in as {{ user.username }} //</span>
+            <a href="/accounts/logout">[Logout]</a>
+        {% endif %}
       {% endblock %}
     </div>
+    {% if messages %}
+    <div>
+      <strong>Messages:</strong>
+      <ul>
+	  {% for message in messages %}
+	    <li>{{message}}</li>
+	  {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
     <div id="content">
       {% block content %}
       {% endblock %}

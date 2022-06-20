@@ -41,8 +41,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'django.contrib.sites',
+
     'sortedm2m',
     'debug_toolbar',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +59,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'login_required.middleware.LoginRequiredMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -130,4 +138,23 @@ STATIC_URL = '/static/'
 
 INTERNAL_IPS = [
     '127.0.0.1',
+]
+
+# Based on https://wsvincent.com/django-allauth-tutorial/ .
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+ADAPTER = 'echoes_cms.auth.SocialAccountAdapter'
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = 'index'
+
+LOGIN_REQUIRED_IGNORE_PATHS = [
+    r'/accounts/login/$',
+    r'/accounts/github/login/$',
+    r'/accounts/github/login/callback/$',
+    r'/admin/$',
 ]
